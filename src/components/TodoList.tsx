@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCreateTodoMutation, useGetTodosQuery } from "../redux/api/crud";
 
 const TodoList = () => {
@@ -11,6 +11,10 @@ const TodoList = () => {
 	const addTodo = async () => {
 		await createTodo({ firstName, lastName });
 	};
+
+	useEffect(() => {
+		addTodo();
+	}, []);
 
 	return (
 		<div>
